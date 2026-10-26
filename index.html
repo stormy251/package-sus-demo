@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Is this package real? Free npm / PyPI check (Package Sus Detector demo)</title>
+<meta name="description" content="Free, no-signup demo: check one npm or PyPI package name for hallucinated (slopsquatted) names, typosquats, known vulnerabilities and abandonment before you install it. Runs in your browser.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://registry.npmjs.org https://api.npmjs.org https://pypi.org https://api.osv.dev https://api.deps.dev; base-uri 'none'; form-action 'none'">
+<style>
+ body{font:16px/1.5 system-ui,sans-serif;max-width:720px;margin:2rem auto;padding:0 1rem;color:#1a1a1a}
+ h1{font-size:1.6rem} form{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
+ input,select,button{font:inherit;padding:.5rem .7rem;border:1px solid #888;border-radius:6px} input{flex:1;min-width:12rem}
+ button{background:#111;color:#fff;cursor:pointer} .ex button{background:#fff;color:#111;font-size:.85rem;padding:.2rem .5rem;margin:0 .2rem .3rem 0}
+ .v{display:inline-block;padding:.15rem .6rem;border-radius:99px;font-weight:600;font-size:1rem}
+ .ok{background:#d8f5d8}.caution{background:#fff1c2}.suspicious,.not_found{background:#ffd6d6}.error{background:#eee}
+ li{margin:.3rem 0} .muted{color:#555;font-size:.9rem} .cta{border:1px solid #ccc;border-radius:8px;padding:1rem;margin-top:2rem}
+ .cta a.btn{display:inline-block;background:#111;color:#fff;padding:.5rem 1rem;border-radius:6px;text-decoration:none;font-weight:600}
+</style></head><body>
+<h1>Is this package real, and safe to install?</h1>
+<p>Paste one npm or PyPI name (for example one an AI assistant just suggested). Free, no signup. The check runs in your browser against the public npm, PyPI, OSV and deps.dev APIs; static signals only, nothing is downloaded or run.</p>
+<form id="f"><select id="eco" aria-label="Ecosystem"><option value="npm">npm</option><option value="pypi">PyPI</option></select>
+<input id="name" required placeholder="e.g. react-codeshift" autocomplete="off" spellcheck="false"><button>Check</button></form>
+<div class="ex muted">Try: <button type="button" data-ex="npm:react-codeshift">react-codeshift</button><button type="button" data-ex="npm:expres">expres</button><button type="button" data-ex="npm:lodashs">lodashs</button><button type="button" data-ex="npm:unused-imports">unused-imports</button><button type="button" data-ex="pypi:requests">requests</button></div>
+<div id="out" aria-live="polite"></div>
+<div class="cta"><strong>Need more than one name at a time?</strong>
+<p>The <a href="https://apify.com/stormy251/package-sus-detector">Package Sus Detector Actor on Apify</a> checks a whole <code>package.json</code>, <code>requirements.txt</code> or lockfile, diffs a pull request against its base branch, adds download-count signals for PyPI and can fail your CI. It is paid, pay-per-event ($0.01 per package checked), and I built it. This page runs the same open-source (MIT) checks one package at a time.</p>
+<p><a class="btn" href="https://apify.com/stormy251/package-sus-detector">Try the Actor on Apify</a> &nbsp; <a href="https://github.com/stormy251/package-sus-detector-action">GitHub Action for pull requests</a> · <a href="https://github.com/stormy251/package-sus-detector">Source (MIT)</a></p></div>
+<p class="muted"><strong>Risk signals, not accusations.</strong> Results are automated signals computed from public registry and advisory data. A <em>suspicious</em> or <em>caution</em> verdict means "look closer before installing", not that a package or its author is malicious. A clean result is not a guarantee of safety. Not security advice.</p>
+<script type="module" src="app.js"></script></body></html>
